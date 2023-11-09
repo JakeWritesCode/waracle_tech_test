@@ -7,14 +7,13 @@ it matches the required skills for the job description.
 In addition to the required functionality I've added a few extras, intended to improve quality, developer experience
 and match production standards. These include:
 
-- Dockerised development / deployment environment (see [#Docker](#docker))
-- Option for localised development environment (see [#Local Development](#local-development))
-- Test suite and basic CI pipeline implemented with CircleCI. (see [#Testing](#testing))
-- FactoryBoy for test data generation. (see [#Testing](#testing))
-- Linting and formatting using the excellent Ruff library, including pre-commit hooks. (
-  see [#Linting and Formatting](#linting-and-formatting))
-- API documentation using Swagger. (see [#API Documentation](#api-documentation))
-- Configuration mapped to environment variables. (see [#Configuration](#configuration))
+- Dockerised development / deployment environment
+- Option for localised development environment
+- Test suite and basic CI pipeline implemented with CircleCI.
+- FactoryBoy for test data generation.
+- Linting and formatting using the excellent Ruff library, including pre-commit hooks.
+- API documentation using Swagger.
+- Configuration mapped to environment variables.
 
 ## Development / Running the app
 I have created a dockerised development environment for this project using docker compose, including the following:
@@ -59,3 +58,15 @@ Then, to run the app:
 
 Again, to navigate to the api docs, visit: http://localhost:8000/api/docs/
 
+
+## Testing
+
+Tests are configured to run in pytest. To run the tests, run the following command:
+
+```shell
+cd <project root>
+source development_envvars.sh
+pytest .
+```
+
+I have also configured a CI pipeline using CircleCI. This will run the tests and linting on every commit.
