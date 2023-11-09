@@ -29,7 +29,7 @@ To install docker,see: https://docs.docker.com/get-docker/
 Once docker is installed, you can run the app with the following command:
 
 ```shell
-cd <project root>
+cd <project root>/docker
 docker-compose up
 ```
 
