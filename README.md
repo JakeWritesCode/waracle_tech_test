@@ -10,6 +10,7 @@ and match production standards. These include:
 - Dockerised development / deployment environment (see [#Docker](#docker))
 - Option for localised development environment (see [#Local Development](#local-development))
 - Test suite and basic CI pipeline implemented with CircleCI. (see [#Testing](#testing))
+- FactoryBoy for test data generation. (see [#Testing](#testing))
 - Linting and formatting using the excellent Ruff library, including pre-commit hooks. (
   see [#Linting and Formatting](#linting-and-formatting))
 - API documentation using Swagger. (see [#API Documentation](#api-documentation))
