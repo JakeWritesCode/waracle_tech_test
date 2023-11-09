@@ -1,0 +1,118 @@
+openapi: 3.0.3
+info:
+  title: Cake API
+  version: 1.0.0
+  description: An API all about cake!
+paths:
+  /api/cakes/:
+    get:
+      operationId: Get Cakes
+      description: List all cakes.
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CakeSerialiser'
+          description: ''
+    post:
+      operationId: Create Cake
+      description: List all cakes, or create a new cake.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CakeSerialiser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CakeSerialiser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CakeSerialiser'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CakeSerialiser'
+          description: ''
+  /api/cakes/{id}/:
+    get:
+      operationId: Get Cake Detail
+      description: Retrieve a cake instance.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CakeSerialiser'
+          description: ''
+    delete:
+      operationId: Delete Cake
+      description: Delete a cake instance.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+components:
+  schemas:
+    CakeSerialiser:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 30
+        comment:
+          type: string
+          maxLength: 200
+        imageUrl:
+          type: string
+        yumFactor:
+          type: integer
+      required:
+      - comment
+      - id
+      - imageUrl
+      - name
+      - yumFactor
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

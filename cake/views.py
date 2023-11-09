@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from rest_framework import generics
 from cake.models import Cake
 from cake.serialisers import CakeSerialiser
@@ -33,3 +34,11 @@ class CakeView(generics.RetrieveDestroyAPIView):
 
     queryset = Cake.objects.all()
     serializer_class = CakeSerialiser
+
+
+def api_docs_view(request):
+    """
+    View for the API documentation.
+    """
+
+    return render(request, "cake/api_docs.html")
