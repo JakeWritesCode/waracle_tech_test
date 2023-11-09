@@ -6,7 +6,7 @@
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 
 export DJANGO_SETTINGS_MODULE="waracle_tech_test.settings.development"
-export SECRET_KEY="a_very_insecure_development_secret_key"
+export DHANGO_SECRET_KEY="a_very_insecure_development_secret_key"
 export DJANGO_DEBUG=0
 export DJANGO_ALLOWED_HOSTS="*"
 export DJANGO_DB_HOST="localhost"
