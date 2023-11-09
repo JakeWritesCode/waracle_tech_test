@@ -70,3 +70,44 @@ pytest .
 ```
 
 I have also configured a CI pipeline using CircleCI. This will run the tests and linting on every commit.
+You can see the pipeline here: https://app.circleci.com/pipelines/github/JakeWritesCode/waracle_tech_test
+
+To speed up testing I have added factory-boy to the requirements. Factory-boy is a great library for 
+standardising creating test model data. You can see an example in `cake/tests/factories.py`.
+
+## Linting and formatting
+
+Linting and formatting is covered by the excellent Ruff library. I have also configured pre-commit hooks to run
+linting and formatting on every commit. To run the linter and formatter manually, run the following command:
+
+```shell
+cd <project root>
+ruff format .
+ruff lint .
+```
+
+## API Documentation
+
+API documentation is created in OpenAPI/Swagger 3.0 format. You can view the docs by running the app and visiting
+http://localhost:8000/api/docs/. 
+
+I have also installed drf-spectacular, which does a reasonable job of automating the documentation.
+
+With a bit more time, contract testing for the endpoints back to the OpenAPI spec would be a nice addition.
+
+The YAML file is also directly accessible at http://localhost:8000/static/schema.yaml
+
+
+
+## Deployment
+The requirements documentation for this test stated: 
+
+> The API should be deployed to Docker or Kubernetes, onto whatever solution you like, impress us.
+
+I have provided the local development environment in docker-compose, and am quite happy to talk you through 
+how I would deploy this in production using NGINX and Gunicorn. Given the simplicity of the app, a full kubernetes
+deployment seems like overkill. I would possibly aim for a simpler deployment with something like google app engine, 
+AWS lightsail or even Heroku.
+
+I hope all this makes sense! Please let me know if you have any questions.
+
