@@ -1,0 +1,24 @@
+version: "3.9"
+services:
+  app:
+    platform: linux/amd64
+    tty: true
+    image: python:3.10-alpine
+    entrypoint: /opt/app/docker/app-startup.sh
+#    entrypoint: /bin/sh
+    container_name: app-server
+    volumes:
+      - ../:/opt/app
+    ports:
+      - "8000:8000"
+  postgres:
+    platform: linux/amd64
+    image: postgres:15
+    ports:
+      - "8001:5432"
+    volumes:
+      - ./postgres_dev:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres  # Extra secure...
+      - POSTGRES_DB=waracle_tech_test
