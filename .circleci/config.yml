@@ -36,7 +36,7 @@ jobs:
       - run:
           name: Run tests
           command: |
-            pytest --cov=. --cov-report=xml --ds=waracle_tech_test.settings.development
+            pytest --ds=waracle_tech_test.settings.development
       - run:
           name: Ruff
           command: |
