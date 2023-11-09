@@ -17,11 +17,12 @@ jobs:
         environment:
           DJANGO_SECRET_KEY: test_django_secret_key
           DJANGO_DEBUG: False
-          POSTGRES_DB_NAME: waracle_tech_test
-          POSTGRES_DB_USER: postgres
-          POSTGRES_DB_PASSWORD: postgres
-          POSTGRES_DB_HOST: localhost
-          POSTGRES_DB_PORT: 5432
+          DJANGO_ALLOWED_HOSTS: localhost
+          DJANGO_DB_NAME: waracle_tech_test
+          DJANGO_DB_USER: postgres
+          DJANGO_DB_PASSWORD: postgres
+          DJANGO_DB_HOST: localhost
+          DJANGO_DB_PORT: 5432
       - image: cimg/postgres:15.0
         environment:
           POSTGRES_USER: postgres
